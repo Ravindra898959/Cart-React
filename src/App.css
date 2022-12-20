@@ -1,38 +1,119 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-header{
+  box-shadow: 5px 5px 15px #888888 ;
+  background-color: rgb(50, 50, 163);
+  height: 40px;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2rem;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.main-header h2{
+  margin-right: 70%;
+  margin-left: 1rem;
 }
+.form-div{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  box-shadow: 5px 5px 5px -5px;
+  margin-left: 32%;
+  margin-top: 5%;
+  height: 400px;
+  width: 500px;
+  border: 2px solid rgb(126, 121, 121);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+.form-div label{
+ width: 400px;
+ padding-left: 1rem;
+ display: flex;
+ justify-content: space-between;
+}
+.form-div input{
+  padding: 0.5rem;
+}
+.btn1{
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 9%;
+  font-weight: bold;
+  width: fit-content;
+  background-color: rgb(50, 50, 163);
+  color: white;
+  border: wheat;
+}
+.gotomenu-div{
+  font-size: xx-large;
+  font-weight: normal;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 35%;
+  width: 450px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gotomenu-div button{
+  margin-top: 2rem;
+}
+.mainpage-div1{
+  margin-top: 3rem;
+  box-shadow: 5px 5px 5px -5px;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mainpage-div1 .btn1{
+  text-align: center;
+  font-size: large;
+  height: 30px;
+  width: 45px;
+}
+.mainpage-image{
+  height: 200px;
+  width: 250px;
+}
+.btn2{
+  cursor: pointer;
+  font-size: large;
+  height: 30px;
+  width: 45px;
+  border: none;
+  background-color: #b9b5b5;
+  color: #413f3f;
+  margin-left: 1rem;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.button-div{
+  padding: 0.5rem;
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+}
+.mainpage-div-main{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-left: 15%;
+}
+.mainpage-div1 h5, p{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.cart-style{
+  font-size: xx-large;
 }
