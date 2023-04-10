@@ -20,35 +20,23 @@ const Sidebar = () => {
           </button>
         </header>
         <ul className="m-0 p-0 list-none	">
-          <li>
-            <Link href="#">
-              Dashboard
-              {/* <a>Home</a> */}
-            </Link>
+          <li className="m-2.5	">
+            <Link href="#">Dashboard</Link>
           </li>
-          <li>
-            <Link href="#">
-              Users
-              {/* <a>About</a> */}
-            </Link>
+          <li className="m-2.5 text-black		">
+            <Link href="#">Users</Link>
           </li>
-          <li>
-            <Link href="#">
-              Revenue
-              {/* <a>Contact</a> */}
-            </Link>
+          <li className="m-2.5	">
+            <Link href="#">Revenue</Link>
           </li>
-          <li>
-            <Link href="#">
-              Security
-              {/* <a>Contact</a> */}
-            </Link>
+          <li className="m-2.5	">
+            <Link href="#">Security</Link>
           </li>
         </ul>
         <style jsx>{`
           .sidebar {
             position: fixed;
-            top: 0;
+            top: 9.5%;
             left: -200px;
             height: 100%;
             width: 200px;
@@ -60,17 +48,6 @@ const Sidebar = () => {
           .sidebar.open {
             left: 0;
           }
-
-          li {
-            margin-bottom: 10px;
-          }
-          a {
-            color: black;
-            text-decoration: none;
-          }
-          a:hover {
-            text-decoration: underline;
-          }
           .toggle-button {
             display: none;
           }
@@ -80,11 +57,6 @@ const Sidebar = () => {
             align-items: center;
             margin-bottom: 20px;
           }
-
-          header a {
-            font-weight: bold;
-          }
-
           header input {
             margin-left: 20px;
             padding: 5px;
@@ -92,26 +64,7 @@ const Sidebar = () => {
             border-radius: 5px;
             box-shadow: 0 0 2px gray;
           }
-
-          .profile {
-            display: flex;
-            align-items: center;
-          }
-
-          .profile img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-left: 20px;
-          }
-
-          .profile span {
-            margin-left: 10px;
-            font-weight: bold;
-          }
-
           .close-button {
-            float: right;
             background-color: #ffffff;
             border: none;
             font-size: 16px;
