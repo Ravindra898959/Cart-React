@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function Sidebar() {
   const [data, setData] = useState([]);
@@ -6,7 +6,7 @@ function Sidebar() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/headerData/sidebarData.json');
+        const response = await fetch("/headerData/sidebarData.json");
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -17,13 +17,23 @@ function Sidebar() {
   }, []);
 
   return (
-    <div>
-      {data?.items?.map(item => (
-        <div key={item.id}>
-          <h3>{item.title}</h3>
-          <p>{item.content}</p>
-        </div>
-      ))}
+    <div className="border border-solid	border-black flex	justify-around">
+      <div className="w-2/4">
+        {data?.items?.map((item) => (
+          <div key={item.id}>
+            <h3>{item.title}</h3>
+            <p>{item.content}</p>
+          </div>
+        ))}
+      </div>
+      <div className="w-2/4">
+        {data?.items?.map((item) => (
+          <div key={item.id}>
+            <h3>{item.title}</h3>
+            <p>{item.content}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
