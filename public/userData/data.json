@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id" : "1",
+            "username": "johndoe",
+            "country": "United States",
+            "image_url": "https://picsum.photos/50",
+            "price":"165.25"
+        },
+        {
+            "id" : "2",
+            "username": "janedoe",
+            "country": "Canada",
+            "image_url": "https://picsum.photos/50",
+            "price":"165.25"
+        },
+        {
+            "id" : "3",
+            "username": "jimmydoe",
+            "country": "Australia",
+            "image_url": "https://picsum.photos/50",
+            "price":"165.25"
+        }
+    ]
+}

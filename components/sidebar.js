@@ -10,6 +10,7 @@ const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,9 +21,10 @@ const Sidebar = () => {
         console.error(error);
       }
     };
+
     fetchData();
   }, []);
-  console.log(data);
+  // console.log(data);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -50,7 +52,7 @@ const Sidebar = () => {
           </button>
         </header>
         <ul className="m-0 p-0 list-none	">
-          {data?.items?.map((item) => (
+          {data?.items?.slice(0,4).map((item) => (
             // <Icon />
             <li className="m-2.5 flex gap-3 mb-10" key={item.id}>
               <MdLockOutline className="text-2xl"/>

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 // import Layout from "../../components/Layout";
 import Sidebar from "../components/sidebar";
 import { FiUsers } from "react-icons/fi";
+import Link from "next/link";
 
 const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [userData,setUserData] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,26 +19,41 @@ const Admin = () => {
         console.error(error);
       }
     };
+
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch("/userData/data.json");
+        const jsonData = await response.json();
+        setUserData(jsonData);
+        console.log(jsonData)
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserData()
     fetchData();
   }, []);
-  console.log(data);
+  // console.log(data);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <>
-      <nav className=" w-screen	flex justify-evenly  p-0.5 ">
-        <div className="flex justify-around  items-center  w-3/5">
+      <nav className=" w-screen	flex justify-between  p-0.5 ">
+        <div className="flex 	justify-around items-center  w-3/5">
           <img src="./Image/Mamtismamas.png" className="w-14 h-14	" />
+          <div className="flex gap-8 ">
           <h1 className="">Hello, Admin</h1>
           <input
             type="search"
             id="gsearch"
             name="gsearch"
             placeholder="search"
-            className=" w-1/4	p-0.5  rounded		 "
+            className=" w-1/1	p-0.5  rounded	border border-grey	 "
           />
+          </div>
           {/* <TbLayoutDashboard/> */}
         </div>
         <div className="  flex w-1/4 justify-evenly items-center ">
@@ -80,7 +97,7 @@ const Admin = () => {
           </div>
           <button
             onClick={toggleSidebar}
-            className="text-right	p-2	w-min	 ml-20 self-end border border-black rounded-tl-md	rounded-bl-md font-bold "
+            className="		 ml-20 self-end border-2 h-10 border-green-700	 rounded-tl-md	rounded-bl-md font-bold w-8 text-2xl	"
           >
             {isOpen ? "<" : "x"}
             {/* &#10005; */}
@@ -89,35 +106,40 @@ const Admin = () => {
             <div className="w-full">
               <h1>Users</h1>
               {data?.items?.map((item) => (
-                <div className=" flex justify-around items-center bg-white h-16 mb-2 shadow-lg shadow-gray-300">
-                  <p>{item.content}</p>
-                  <p>{item.id}</p>
-                  {/* <p>{item.icon}</p> */}
+                <div className="flex justify-around items-center bg-white h-16 mb-2 shadow-lg shadow-gray-300">
+                  <p className="text-left">{item.id}</p>
+                  <p>{item.no}</p>
+                  <p>{item.username}</p>
+                  <p>{item.location}</p>
+                  <p>{item.userType}</p>
+                  <p>{item.date}</p>
                   {/* <{icon}/> */}
                 </div>
               ))}
             </div>
-            {isOpen ? <h1>Analysis</h1> : ""}
+            {isOpen ? <h1 className="rotate-360 h-min	mt-4 self-between"> Analysis</h1> : ""}
             <div
-              className={`flex flex-col gap-10 ease-in duration-300  ${
+              className={`flex flex-col gap-10 ease-in duration-300 w-2/5 ${
                 isOpen ? "hidden" : ""
               }`}
             >
-              <div className="	shadow-gray-300 shadow-lg">
-                {data?.items?.map((item) => (
-                  <div className=" flex justify-around items-center bg-white h-16	p-14	">
-                    <p>{item.content}</p>
-                    <p>{item.id}</p>
+              <div className="	shadow-gray-300 shadow-lg flex flex-col justify-between items-center bg-white ">
+                <span className="pt-2 w-full flex justify-around">Top Chefs <Link href="#" className="text-green-700 font-bold">See More</Link></span>
+                {userData?.users?.map((item) => (
+                  <div className=" flex justify-between items-center bg-white h-16	p-14  rounded-lg w-full"> 
+                    <img src={item.image_url} />
+                    <p className=" w-20 font-bold">{item.username}<br/>  <span className="text-sm	font-normal	"> {item.country}</span></p>
                     <p>{item.icon}</p>
                   </div>
                 ))}
               </div>
-              <div className="shadow-gray-300 shadow-lg">
-                {data?.items?.map((item) => (
-                  <div className=" flex justify-around items-center bg-white h-16	p-14	">
-                    <p>{item.content}</p>
-                    <p>{item.id}</p>
-                    <p>{item.icon}</p>
+              <div className="	shadow-gray-300 shadow-lg flex flex-col justify-between items-center bg-white ">
+                <span className="pt-2 w-full flex justify-around">This Month <Link href="#" className="text-green-700 font-bold">See More</Link></span>
+                {userData?.users?.map((item) => (
+                  <div className=" flex justify-between items-center bg-white h-16	p-14  rounded-lg w-full"> 
+                    <img src={item.image_url} />
+                    <p className=" w-20 font-bold">{item.username}<br/>  <span className="text-sm	font-normal	"> {item.country}</span></p>
+                    <p>{item.price}</p>
                   </div>
                 ))}
               </div>
